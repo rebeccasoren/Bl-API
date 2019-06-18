@@ -22,17 +22,19 @@ print("\nEnter key to display its value:",end=" ")
 key=input()
 print("\nValue of {}:{}".format(key,trans_d[key]))
 
-#get_address #MEMORY_ERROR
-x=id(blockexplorer.get_latest_block())
-e=str(b58encode(str(x)))
-arr=[]
-for i in e:
-	if i!="'":
-		arr.append(i)
-s=''.join(arr)
-print(s)
-print(blockexplorer.get_address(s))
-
+#get_address()
+addr=blockexplorer.get_address('1FfmbHfnpaZjKFvyi1okTjJJusN455paPH')
+addr_d=vars(addr)
+print("Keys available:")
+for i in addr_d:
+        print(i)
+print("Enter key to view:",end=" ")
+key=input()
+if(key!='transactions'):
+	print("Value of {}:{}".format(key,addr_d[key]))
+else:
+	print(dir(addr_d[key]))
+	
 #get_block_height()
 i=lblock_d['height']
 print("Height of latest block is:",i)
@@ -54,17 +56,24 @@ print("Total no of blocks matching this height:",i)
 xpubs=blockexplorer.get_xpub('xpub6CUGRUonZSQ4TWtTMmzXdrXDtypWKiKrhko4egpiMZbpiaQL2jkwSB1icqYh2cfDfVxdx4df189oLKnC5fSwqPfgyP3hooxujYzAu3fDVmz')
 print(xpubs)
 
-#get_multi_address #API_ERROR:INVALID BITCOIN ADDRESS
-y=id(blockexplorer.get_latest_block())
-f=str(b58encode(str(y)))
-ar=[]
-for i in f:
-	if i!="'":
-		ar.append(i)
-s1=''.join(ar)
-print(s1)
-print(blockexplorer.get_multi_address(s1))
+#get_multi_addrress
+add=blockexplorer.get_multi_address('1FfmbHfnpaZjKFvyi1okTjJJusN455paPH')
+add_d=vars(add)
+print("Keys available:")
+for i in add_d:
+	print(i)
+print("Enter key to view:",end=" ")
+key=input()
+if((key!='addresses')and (key!='transactions')):
+	print("Value of {}:{}".format(key,add_d[key]))
+else:
+	adr=add_d[key]
+	print(dir(adr))
 
+#get_unspent_outputs
+unspent=blockexplorer.get_unspent_outputs('1FfmbHfnpaZjKFvyi1okTjJJusN455paPH')
+print(dir(unspent))
+	
 #get_latest_block()
 lblock=blockexplorer.get_latest_block()
 lblock_d=vars(lblock) #creating dictionary of object latest block
