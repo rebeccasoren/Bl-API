@@ -1,4 +1,4 @@
 # Bl-API
-Simplified and menu-driven sample functions of Blockchain API modules.
+Menu-driven sample functions of Blockchain Bitcoin Developer Python API (https://github.com/blockchain/api-v1-client-python)
 
-Note: Functions are provided only for test-purposes and not for commercial use.
+Blockchain Bitcoin Developer APIs - Python (https://blockchain.info/api)
